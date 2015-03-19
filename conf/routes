@@ -7,3 +7,16 @@ GET     /                           controllers.Application.index()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+
+GET /form                           controllers.MemberCtrl.index()
+
+POST /form                          controllers.MemberCtrl.save()
+
+GET /index2                         controllers.MemberCtrl.members()
+
+GET /editMember                     controllers.MemberCtrl.editMembers(id: String)
+
+POST /editMember                    controllers.MemberCtrl.update()
+
+GET /member/:id                  controllers.MemberCtrl.delete(id: String)

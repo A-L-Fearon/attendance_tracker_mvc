@@ -1,0 +1,54 @@
+@(memberlist: List[Member])
+@main("Page name"){
+
+<div class="container">
+    @if(flash.containsKey("success")){
+    <div class="notibar msgsuccess">
+        @flash.get("success")
+    </div>
+    }
+    <h2>Computing Society Members</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email Address</th>
+            <th>ID #</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        @for(list <- memberlist){
+        <tr>
+            <td>@list.fname</td>
+            <td>@list.lname</td>
+            <td>@list.email</td>
+            <td>@list.id</td>
+            <td><a href="@routes.MemberCtrl.editMembers(list.id)"><button class="btn btn-primary">Edit</button></a></td>
+            <td><a href="@routes.MemberCtrl.delete(list.id)"><button class = "btn btn-danger">Delete</button></a></td>
+            <td><a href="#">Dues</a></td>
+        </tr>
+        }
+
+
+    </table>
+    <a href="@routes.MemberCtrl.index()"><button class="btn btn-primary">Add Member</button></a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
